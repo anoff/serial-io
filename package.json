@@ -1,0 +1,43 @@
+{
+  "name": "serial-io",
+  "version": "0.0.0",
+  "description": "serialport interface for batch style commands",
+  "license": "MIT",
+  "repository": "anoff/serial-io",
+  "author": {
+    "name": "anoff",
+    "email": "offenhaeuser@gmail.com",
+    "url": "github.com/anoff"
+  },
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "xo && nyc ava",
+		"test:watch": "npm test -- --watch"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    ""
+  ],
+  "dependencies": {
+    "serialport": "^4.0.3"
+  },
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "coveralls": "^2.11.12",
+    "nyc": "^7.1.0",
+    "xo": "^0.16.0"
+  },
+  "xo": {
+    "esnext": true
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text"
+    ]
+  }
+}
