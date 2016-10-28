@@ -1,6 +1,6 @@
 {
   "name": "serial-io",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "serialport interface for batch style commands",
   "license": "MIT",
   "repository": "anoff/serial-io",
@@ -14,7 +14,8 @@
   },
   "scripts": {
     "test": "xo && nyc ava",
-		"test:watch": "npm test -- --watch"
+    "test:watch": "ava --watch",
+		"test:watch:coverage": "nyc ava --watch"
   },
   "files": [
     "index.js"
@@ -29,6 +30,7 @@
     "ava": "^0.15.2",
     "coveralls": "^2.11.12",
     "nyc": "^7.1.0",
+    "testdouble": "^1.9.0",
     "xo": "^0.16.0"
   },
   "xo": {
@@ -39,5 +41,11 @@
       "lcov",
       "text"
     ]
-  }
+  },
+	"ava": {
+		"files": [
+			"!test/*.js",
+			"**/*.test.js"
+		]
+	}
 }

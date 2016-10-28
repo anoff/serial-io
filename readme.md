@@ -1,16 +1,42 @@
-# serial-io [![Build Status](https://travis-ci.org/anoff/serial-io.svg?branch=master)](https://travis-ci.org/anoff/serial-io) [![Coverage Status](https://coveralls.io/repos/github/anoff/serial-io/badge.svg?branch=master)](https://coveralls.io/github/anoff/serial-io?branch=master)
+serial-io
+===
+[![Build Status](https://travis-ci.org/anoff/serial-io.svg?branch=master)](https://travis-ci.org/anoff/serial-io) [![Coverage Status](https://coveralls.io/repos/github/anoff/serial-io/badge.svg?branch=master)](https://coveralls.io/github/anoff/serial-io?branch=master)
 
 > serialport interface for batch style commands
 
+This module is a **promise** based wrapper for the [node-serialport](https://github.com/EmergingTechnologyAdvisors/node-serialport) package.
+It allows you to interact with devices on a **command & response** basis. Based on a defined `terminator` or `timing` behavior the end of a response is deterimed and the complete response returned as a _resolved_ `Promise`.
 
-## Install
+<!-- TOC depthFrom:1 depthTo:3 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Install](#install)
+- [Usage](#usage)
+- [API](#api)
+	- [serialIo.ports()](#serialioports)
+	- [serialIo.send(portName, content, {options})](#serialiosendportname-content-options)
+		- [portName](#portname)
+		- [content](#content)
+		- [options](#options)
+	- [serialIo.connect(portName, {options})](#serialioconnectportname-options)
+		- [portName](#portname)
+		- [options](#options)
+	- [connection.close()](#connectionclose)
+	- [connection.send(content, {options})](#connectionsendcontent-options)
+		- [content](#content)
+		- [options](#options)
+	- [connection.getState()](#connectiongetstate)
+- [License](#license)
+
+<!-- /TOC -->
+
+# Install
 
 ```
 $ npm install --save serial-io
 ```
 
 
-## Usage
+# Usage
 
 ```js
 const serialIo = require('serial-io');
@@ -20,38 +46,105 @@ serialIo('unicorns');
 ```
 
 
-## API
+# API
+The package exposes two APIs with different abstraction levels.
+Directly interacting with the `serialIo` objects gives you the highest level of abstraction.
+If you use `serialIo.connect()` you get a `Connection` object returned that
+allows you to do things like multiple requests without re-connecting every time.
 
-### serialIo.devices()
+All methods are _promise-based_.
 
-### serialIo.send(device, content, {options})
+## serialIo.ports()
+Resolves to a list of available serial ports. Refer to the [serialport documentation](https://github.com/EmergingTechnologyAdvisors/node-serialport#module_serialport--SerialPort.list) for a specification of the returned data.
 
-### serialIo.connect(device, {options})
+## serialIo.send(portName, content, {options})
+Single interaction with a `device`. Opens up a connection, transmits the `content` and waits for the response to resolve the returned `Promise`.
 
-### connection.close()
-
-### connection.send(content, {options})
-
-### connection.state()
-
-### connection.options({options})
-
-#### input
+### portName
 
 Type: `string`
 
-Lorem ipsum.
+A valid portname.
 
-#### options
+### content
 
-##### foo
+Type: `string`
 
-Type: `boolean`<br>
-Default: `false`
+Payload to send.
 
-Lorem ipsum.
+### options
+#### terminator
 
+Type: `string`<br>
+Default: `none`
 
-## License
+If the specified `terminator` string/character is found within the response the `Promise` is resolved immediately with the capture data. The returned data includes the `terminator`.
+
+#### timeoutInit
+
+Type: `number` in ms<br>
+Default: `100`
+
+Time to listen to the device for a (first) response.
+
+#### timeoutRolling
+
+Type: `number` in ms<br>
+Default: `10`
+
+Time to wait after receiving a data chunk until the next one arrives. If the timer runs out the response is `resolved`.
+
+## serialIo.connect(portName, {options})
+Opens up a `Connection` to the given port.
+
+### portName
+
+Type: `string`
+
+A valid portname.
+
+### options
+
+Refer to [serialport openOptions](https://github.com/EmergingTechnologyAdvisors/node-serialport#module_serialport--SerialPort..openOptions) for an overview of available options.
+
+## connection.close()
+
+Closes the `Connection` instance.
+
+## connection.send(content, {options})
+Send `content` over the connection and wait for an answer. The method returns a `Promise` that will resolve to the received answer. Using `options` you can define how listening to answer is done.
+
+### content
+
+Type: `string`
+
+Payload to send.
+
+### options
+#### terminator
+
+Type: `string`<br>
+Default: `none`
+
+If the specified `terminator` string/character is found within the response the `Promise` is resolved immediately with the capture data. The returned data includes the `terminator`.
+
+#### timeoutInit
+
+Type: `number` in ms<br>
+Default: `100`
+
+Time to listen to the device for a (first) response.
+
+#### timeoutRolling
+
+Type: `number` in ms<br>
+Default: `10`
+
+Time to wait after receiving a data chunk until the next one arrives. If the timer runs out the response is `resolved`.
+
+## connection.getState()
+Tells you something about the current connection.
+
+# License
 
 MIT © [anoff](http://github.com/anoff)

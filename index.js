@@ -1,10 +1,5 @@
 'use strict';
-module.exports = (input, opts) => {
-	if (typeof input !== 'string') {
-		throw new TypeError(`Expected a string, got ${typeof input}`);
-	}
 
-	opts = opts || {};
+const SerialIo = require('./lib/serialio');
 
-	return input + ' & ' + (opts.postfix || 'rainbows');
-};
+module.exports = SerialIo;
