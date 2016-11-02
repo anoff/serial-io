@@ -41,8 +41,9 @@ $ npm install --save serial-io
 ```js
 const serialIo = require('serial-io');
 
-serialIo('unicorns');
-//=> 'unicorns & rainbows'
+serialIo.ports().then(console.log); // logs all serial ports
+serialIo.send('/dev/cu.usbmodem1411', 'version\n').then(console.log)
+// will show the response of a device on port '/dev/cu.usbmodem1411' (assuming it reacts to 'version\n')
 ```
 
 
