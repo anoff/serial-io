@@ -27,11 +27,11 @@
     "serialport": "^4.0.3"
   },
   "devDependencies": {
-    "ava": "^0.15.2",
+    "ava": "^0.17.0",
     "coveralls": "^2.11.12",
-    "nyc": "^7.1.0",
+    "nyc": "^10.0.0",
     "testdouble": "^1.9.0",
-    "xo": "^0.16.0"
+    "xo": "^0.17.1"
   },
   "xo": {
     "esnext": true
