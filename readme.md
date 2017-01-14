@@ -1,6 +1,10 @@
 serial-io
 ===
-[![Build Status](https://travis-ci.org/anoff/serial-io.svg?branch=master)](https://travis-ci.org/anoff/serial-io) [![Coverage Status](https://coveralls.io/repos/github/anoff/serial-io/badge.svg?branch=master)](https://coveralls.io/github/anoff/serial-io?branch=master)
+
+[![Build Status](https://travis-ci.org/anoff/serial-io.svg?branch=master)](https://travis-ci.org/anoff/serial-io)
+[![Coverage Status](https://coveralls.io/repos/github/anoff/serial-io/badge.svg?branch=master)](https://coveralls.io/github/anoff/serial-io?branch=master)
+[![Known Vulnerabilities](https://snyk.io/test/npm/serial-io/badge.svg)](https://snyk.io/test/npm/serial-io)
+[![Outdated dependencies](https://david-dm.org/anoff/serial-io.svg)](https://david-dm.org/anoff/serial-io)
 
 > serialport interface for batch style commands
 
