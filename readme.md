@@ -41,11 +41,17 @@ $ npm install --save serial-io
 ```js
 const serialIo = require('serial-io');
 
-serialIo.ports().then(console.log); // logs all serial ports
-serialIo.send('/dev/cu.usbmodem1411', 'version\n').then(console.log)
-// will show the response of a device on port '/dev/cu.usbmodem1411' (assuming it reacts to 'version\n')
-```
+// this will send HELLO to the device and resolve with
+//  anything that gets received within 100ms
+serialIo.send('thisPortName', 'HELLO')
+.then(response => console.log(`device responded:\n${response}`))
 
+// if you don't know the devices port name try
+serialIo.ports().then(console.log.bind(console))
+
+// will show the response of a device on port '/dev/cu.usbmodem1411' (assuming it reacts to 'version\n')
+serialIo.send('/dev/cu.usbmodem1411', 'version\n').then(console.log.bind(console))
+```
 
 # API
 The package exposes two APIs with different abstraction levels.
