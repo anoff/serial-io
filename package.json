@@ -15,7 +15,7 @@
   "scripts": {
     "test": "xo && nyc ava",
     "test:watch": "ava --watch",
-		"test:watch:coverage": "nyc ava --watch"
+		"test:coverage": "nyc ava"
   },
   "files": [
     "index.js"
