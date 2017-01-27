@@ -17,11 +17,11 @@
     "test:watch": "ava --watch",
     "test:coverage": "nyc ava"
   },
-  "files": [
-    "index.js"
-  ],
   "keywords": [
-    ""
+    "serial",
+    "io",
+    "string",
+    "commands"
   ],
   "dependencies": {
     "serialport": "^4.0.3"
