@@ -24,7 +24,7 @@
     "commands"
   ],
   "dependencies": {
-    "serialport": "^4.0.3"
+    "serialport": "^5.0.0"
   },
   "devDependencies": {
     "ava": "^0.21.0",
