@@ -27,7 +27,7 @@
     "serialport": "^5.0.0"
   },
   "devDependencies": {
-    "ava": "^0.24.0",
+    "ava": "^0.25.0",
     "coveralls": "^2.11.12",
     "nyc": "^11.0.2",
     "testdouble": "^3.0.0",
