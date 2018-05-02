@@ -7,13 +7,13 @@
   "author": {
     "name": "anoff",
     "email": "offenhaeuser@gmail.com",
-    "url": "github.com/anoff"
+    "url": "https://anoff.io"
   },
   "engines": {
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo && nyc ava",
+    "test": "standard && nyc ava",
     "test:watch": "ava --watch",
     "test:coverage": "nyc ava"
   },
@@ -30,8 +30,8 @@
     "ava": "^0.25.0",
     "coveralls": "^3.0.0",
     "nyc": "^11.0.2",
-    "testdouble": "^3.0.0",
-    "xo": "^0.20.3"
+    "standard": "^11.0.1",
+    "testdouble": "^3.0.0"
   },
   "xo": {
     "esnext": true
