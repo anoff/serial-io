@@ -1,5 +1,5 @@
-'use strict';
+'use strict'
 
-const SerialIo = require('./lib/serialio');
+const SerialIo = require('./lib/serialio')
 
-module.exports = SerialIo;
+module.exports = SerialIo
