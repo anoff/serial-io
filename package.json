@@ -1,6 +1,6 @@
 {
   "name": "serial-io",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "serialport interface for batch style commands",
   "license": "MIT",
   "repository": "anoff/serial-io",
