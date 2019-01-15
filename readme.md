@@ -1,10 +1,10 @@
 serial-io
 ===
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/anoff/serial-io.svg)](https://greenkeeper.io/)
-
+[![npm version](https://img.shields.io/npm/v/serial-io.svg)](https://www.npmjs.com/package/serial-io)
 [![Build Status](https://travis-ci.org/anoff/serial-io.svg?branch=master)](https://travis-ci.org/anoff/serial-io)
 [![Coverage Status](https://coveralls.io/repos/github/anoff/serial-io/badge.svg?branch=master)](https://coveralls.io/github/anoff/serial-io?branch=master)
+[![Greenkeeper badge](https://badges.greenkeeper.io/anoff/serial-io.svg)](https://greenkeeper.io/)
 [![Known Vulnerabilities](https://snyk.io/test/npm/serial-io/badge.svg)](https://snyk.io/test/npm/serial-io)
 [![Outdated dependencies](https://david-dm.org/anoff/serial-io.svg)](https://david-dm.org/anoff/serial-io)
 
