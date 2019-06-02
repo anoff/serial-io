@@ -10,7 +10,7 @@
     "url": "https://anoff.io"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "scripts": {
     "test": "npm run lint && npm run unit:coverage",
