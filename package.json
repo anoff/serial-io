@@ -32,7 +32,7 @@
     "ava": "^2.3.0",
     "coveralls": "^3.0.6",
     "nyc": "^15.0.0",
-    "standard": "^14.0.2",
+    "standard": "14.3.2",
     "testdouble": "^3.12.4"
   },
   "nyc": {
