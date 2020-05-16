@@ -62,8 +62,9 @@ serialIo.send('/dev/cu.usbmodem1411', 'version\n').then(console.log.bind(console
 # API
 The package exposes two APIs with different abstraction levels.
 Directly interacting with the `serialIo` objects gives you the highest level of abstraction.
-If you use `serialIo.connect()` you get a `Connection` object returned that
-allows you to do things like multiple requests without re-connecting every time.
+
+If you use `serialIo.connect()` you get a `Connection` object returned that allows you to do things like multiple requests without re-connecting every time.
+Using the `Connection` API is recommended for programmatic use cases, whereas the high level `serialIO.send()` API is great for handling events that are triggered by humans i.e. low frequency.
 
 All methods are _promise-based_.
 
@@ -109,6 +110,7 @@ Time to wait after receiving a data chunk until the next one arrives. If the tim
 
 ## serialIo.connect(portName, {options})
 Opens up a `Connection` to the given port.
+This method is **NOT** _promise-based_ it will return the `Connection` object directly.
 
 ### portName
 
